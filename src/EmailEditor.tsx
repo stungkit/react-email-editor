@@ -4,7 +4,7 @@ import React, {
   useImperativeHandle,
   useMemo,
 } from 'react';
-import type { UnlayerEditor } from '@unlayer/types';
+import type { DisplayMode, UnlayerEditor } from '@unlayer/types';
 
 import pkg from '../package.json';
 import { EditorRef, EmailEditorProps } from './types';
@@ -13,11 +13,13 @@ import { loadScript } from './loadScript';
 const win = typeof window === 'undefined' ? { __unlayer_lastEditorId: 0 } : window
 win.__unlayer_lastEditorId = win.__unlayer_lastEditorId || 0;
 
-export const EmailEditor = React.forwardRef<EditorRef, EmailEditorProps>(
-  (props, ref) => {
+function EmailEditorInner<TDisplayMode extends DisplayMode | undefined = 'email'>(
+  props: EmailEditorProps<TDisplayMode>,
+  ref: React.Ref<EditorRef<TDisplayMode>>,
+) {
     const { onLoad, onReady, scriptUrl, minHeight = 500, style = {} } = props;
 
-    const [editor, setEditor] = useState<UnlayerEditor | null>(null);
+    const [editor, setEditor] = useState<UnlayerEditor<TDisplayMode> | null>(null);
 
     const [hasLoadedEmbedScript, setHasLoadedEmbedScript] = useState(false);
 
@@ -26,10 +28,10 @@ export const EmailEditor = React.forwardRef<EditorRef, EmailEditorProps>(
       [props.editorId]
     );
 
-    const options: EmailEditorProps['options'] = {
+    const options = {
       ...(props.options || {}),
       appearance: props.appearance ?? props.options?.appearance,
-      displayMode: props?.displayMode || props.options?.displayMode || 'email',
+      displayMode: props?.displayMode || props.options?.displayMode || 'email' as const,
       locale: props.locale ?? props.options?.locale,
       projectId: props.projectId ?? props.options?.projectId,
       tools: props.tools ?? props.options?.tools,
@@ -104,5 +106,10 @@ export const EmailEditor = React.forwardRef<EditorRef, EmailEditorProps>(
         <div id={editorId} style={{ ...style, flex: 1 }} />
       </div>
     );
-  }
-);
+}
+
+export const EmailEditor = React.forwardRef(EmailEditorInner) as <
+  TDisplayMode extends DisplayMode | undefined = 'email',
+>(
+  props: EmailEditorProps<TDisplayMode> & React.RefAttributes<EditorRef<TDisplayMode>>,
+) => React.ReactElement | null;

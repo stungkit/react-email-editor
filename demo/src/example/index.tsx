@@ -3,7 +3,10 @@ import styled from 'styled-components';
 
 import packageJson from '../../../package.json';
 import EmailEditor, { EditorRef, EmailEditorProps } from '../../../src'; // use react-email-editor instead
-import sample from './sample.json';
+import type { JSONTemplate } from '@unlayer/types';
+import _sample from './sample.json';
+
+const sample = _sample as any as JSONTemplate<'email'>;
 
 const Container = styled.div`
   display: flex;
@@ -71,11 +74,12 @@ const Example = () => {
       setPreview(false);
     } else {
       unlayer?.showPreview('desktop');
+      // unlayer?.showPreview({ device: 'desktop', resolution: 1024 })
       setPreview(true);
     }
   };
 
-  const onDesignLoad = (data) => {
+  const onDesignLoad = (data: { design: JSONTemplate<'email'> }) => {
     console.log('onDesignLoad', data);
   };
 
