@@ -1,33 +1,32 @@
-/// <reference path="../node_modules/unlayer-types/embed.d.ts" />
-
 import { CSSProperties } from 'react';
 
-import Embed from 'embed/index';
-import { Editor as EditorClass } from 'embed/Editor';
-import { AppearanceConfig, DisplayMode, ToolsConfig } from 'state/types/types';
+import type {
+  AppearanceConfig,
+  DisplayMode,
+  ToolsConfig,
+  UnlayerEditor,
+  UnlayerEmbed,
+  UnlayerOptions,
+} from '@unlayer/types';
 
-export type Unlayer = typeof Embed;
-export type UnlayerOptions = Parameters<Unlayer['createEditor']>[0];
-export type Editor = InstanceType<typeof EditorClass>;
-
-export interface EditorRef {
-  editor: Editor | null;
+export interface EditorRef<TDisplayMode extends DisplayMode | undefined = 'email'> {
+  editor: UnlayerEditor<TDisplayMode> | null;
 }
 
-export interface EmailEditorProps {
+export interface EmailEditorProps<TDisplayMode extends DisplayMode | undefined = 'email'> {
   editorId?: string | undefined;
   minHeight?: number | string | undefined;
-  onLoad?(unlayer: Editor): void;
-  onReady?(unlayer: Editor): void;
-  options?: UnlayerOptions | undefined;
+  onLoad?(unlayer: UnlayerEditor<TDisplayMode>): void;
+  onReady?(unlayer: UnlayerEditor<TDisplayMode>): void;
+  options?: Omit<UnlayerOptions, 'displayMode'> & { displayMode?: TDisplayMode };
   scriptUrl?: string | undefined;
   style?: CSSProperties | undefined;
 
   // redundant props -- already available in options
   /** @deprecated */
   appearance?: AppearanceConfig | undefined;
-  /** @deprecated */
-  displayMode?: DisplayMode;
+  /** @deprecated Use options.displayMode instead */
+  displayMode?: TDisplayMode;
   /** @deprecated */
   locale?: string | undefined;
   /** @deprecated */
@@ -37,7 +36,7 @@ export interface EmailEditorProps {
 }
 
 declare global {
-  const unlayer: Unlayer;
+  const unlayer: UnlayerEmbed;
 
   interface Window {
     __unlayer_lastEditorId: number;
