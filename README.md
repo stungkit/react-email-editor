@@ -1,6 +1,21 @@
-# React Email Editor
+<h1 align="center">React Email Editor</h1>
 
-The excellent drag-n-drop email editor by [Unlayer](https://unlayer.com/embed) as a [React.js](http://facebook.github.io/react) _wrapper component_. This is the most powerful and developer friendly visual email builder for your app.
+<p align="center">
+  Official React component for embedding <a href="https://unlayer.com/">Unlayer</a>’s drag-and-drop email editor in your app.
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-email-editor"><img src="https://img.shields.io/npm/v/react-email-editor.svg" alt="npm version" /></a>
+  <a href="https://github.com/unlayer/react-email-editor"><img src="https://img.shields.io/github/stars/unlayer/react-email-editor.svg?style=flat-square" alt="stars" /></a>
+  <a href="https://github.com/unlayer/react-email-editor/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/react-email-editor.svg" alt="license" /></a>
+  <a href="https://www.npmjs.com/package/react-email-editor"><img src="https://img.shields.io/npm/dm/react-email-editor.svg" alt="downloads" /></a>
+</p>
+
+---
+
+Add a production-ready, drag-and-drop email builder to your React app with a single component. react-email-editor lets developers embed Unlayer, load and save designs, listen to editor events, customize configuration, and export responsive HTML.
+
+Use it when you need email template creation inside your app without building and maintaining a full visual editor from scratch.
 
 |                                                          Video Overview                                                           |
 | :-------------------------------------------------------------------------------------------------------------------------------: |
@@ -103,4 +118,4 @@ You can submit new language translations by creating a PR on this GitHub repo: h
 
 ### License
 
-Copyright (c) 2024 Unlayer. [MIT](LICENSE) Licensed.
+Copyright (c) 2026 Unlayer. [MIT](LICENSE) Licensed.
