@@ -13,22 +13,20 @@
 
 ---
 
+## Introduction
+
 Add a production-ready, drag-and-drop email builder to your React app with a single component. react-email-editor lets developers embed Unlayer, load and save designs, listen to editor events, customize configuration, and export responsive HTML.
 
 Use it when you need email template creation inside your app without building and maintaining a full visual editor from scratch.
 
 |                                                          Video Overview                                                           |
 | :-------------------------------------------------------------------------------------------------------------------------------: |
-| [![React Email Editor](https://unroll-assets.s3.amazonaws.com/unlayervideotour.png)](https://www.youtube.com/watch?v=MIWhX-NF3j8) |
+| [![React Email Editor](http://unlayer.com/images/editor-video-thumb.png)](https://www.youtube.com/watch?v=qp9t74G4VyM) |
 |                                       _Watch video overview: https://youtu.be/MIWhX-NF3j8_                                        |
 
 ## Live Demo
 
 Check out the live demo here: https://react-email-editor-demo.netlify.app/ ([Source Code](https://github.com/unlayer/react-email-editor/tree/master/demo/src))
-
-## Blog Post
-
-Here's a blog post with a quickstart guide: https://medium.com/unlayer-blog/creating-a-drag-n-drop-email-editor-with-react-db1e9eb42386
 
 ## Installation
 
@@ -105,6 +103,20 @@ All unlayer methods are available in the editor instance (`emailEditorRef.curren
 - `options` {`Object`} options passed to the Unlayer editor instance (default {})
   - See the [Unlayer Docs](https://docs.unlayer.com/docs/getting-started#configuration-options) for all available options.
 - `style` {`Object`} style object for the editor container (default {})
+
+## Support
+
+The email editor output is tested using the most popular email clients.
+
+| <img src="https://unlayer.com/icons/gmail-icon-square.png" width="48px" height="48px" alt="Gmail logo"> | <img src="https://unlayer.com/icons/apple-mail-icon-square.png" width="48px" height="48px" alt="Apple Mail"> | <img src="https://unlayer.com/icons/outlook-icon-square.png" width="48px" height="48px" alt="Outlook logo"> | <img src="https://unlayer.com/icons/yahoo-mail-icon-square.png" width="48px" height="48px" alt="Yahoo! Mail logo"> |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| Gmail ✔                                                                                           | Apple Mail ✔                                                                                           | Outlook ✔                                                                                             | Yahoo! Mail ✔                                                                                                |
+
+## AI Assistant
+
+Add AI-powered content creation to your embedded email editor.
+
+Unlayer’s [AI Assistant](https://unlayer.com/ai) helps users generate, rewrite, translate, and improve email content directly inside the editor. Developers can enable AI features through the editor configuration, giving users a faster way to create polished emails without leaving your app.
 
 ## Custom Tools
 
