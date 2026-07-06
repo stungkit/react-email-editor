@@ -7,8 +7,9 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/react-email-editor"><img src="https://img.shields.io/npm/v/react-email-editor.svg" alt="npm version" /></a>
   <a href="https://github.com/unlayer/react-email-editor"><img src="https://img.shields.io/github/stars/unlayer/react-email-editor.svg?style=flat-square" alt="stars" /></a>
-  <a href="https://github.com/unlayer/react-email-editor/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/react-email-editor.svg" alt="license" /></a>
+  <a href="https://github.com/unlayer/react-email-editor/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/react-email-editor.svg" alt="license" /></a>
   <a href="https://www.npmjs.com/package/react-email-editor"><img src="https://img.shields.io/npm/dm/react-email-editor.svg" alt="downloads" /></a>
+  <a href="https://github.com/unlayer/react-email-editor/actions/workflows/ci.yml"><img src="https://github.com/unlayer/react-email-editor/actions/workflows/ci.yml/badge.svg" alt="CI status" /></a>
 </p>
 
 ---
@@ -19,10 +20,10 @@ Add a production-ready, drag-and-drop email builder to your React app with a sin
 
 Use it when you need email template creation inside your app without building and maintaining a full visual editor from scratch.
 
-|                                                          Video Overview                                                           |
-| :-------------------------------------------------------------------------------------------------------------------------------: |
+|                                                     Video Overview                                                     |
+| :--------------------------------------------------------------------------------------------------------------------: |
 | [![React Email Editor](http://unlayer.com/images/editor-video-thumb.png)](https://www.youtube.com/watch?v=qp9t74G4VyM) |
-|                                       _Watch video overview: https://youtu.be/qp9t74G4VyM_                                        |
+|                                  _Watch video overview: https://youtu.be/qp9t74G4VyM_                                  |
 
 ## Live Demo
 
@@ -40,9 +41,9 @@ npm install react-email-editor --save
 
 Require the EmailEditor component and render it with JSX:
 
-```javascript
+```tsx
 import React, { useRef } from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import EmailEditor, { EditorRef, EmailEditorProps } from 'react-email-editor';
 
@@ -63,7 +64,6 @@ const App = (props) => {
     // you can load your template here;
     // the design json can be obtained by calling
     // unlayer.loadDesign(callback) or unlayer.exportHtml(callback)
-
     // const templateJson = { DESIGN JSON GOES HERE };
     // unlayer.loadDesign(templateJson);
   };
@@ -79,10 +79,14 @@ const App = (props) => {
   );
 };
 
-render(<App />, document.getElementById('app'));
+createRoot(document.getElementById('app')!).render(<App />);
 ```
 
 See the [example source](https://github.com/unlayer/react-email-editor/blob/master/demo/src/example/index.tsx) for a reference implementation.
+
+### Next.js / React Server Components
+
+The editor renders into the DOM, so the component is client-only. The published bundle includes the `'use client'` directive, so with the Next.js App Router you can import it directly from any Client Component — no `next/dynamic` workaround required.
 
 ### Methods
 
@@ -109,8 +113,8 @@ All unlayer methods are available in the editor instance (`emailEditorRef.curren
 The email editor output is tested using the most popular email clients.
 
 | <img src="https://unlayer.com/icons/gmail-icon-square.png" width="48px" height="48px" alt="Gmail logo"> | <img src="https://unlayer.com/icons/apple-mail-icon-square.png" width="48px" height="48px" alt="Apple Mail"> | <img src="https://unlayer.com/icons/outlook-icon-square.png" width="48px" height="48px" alt="Outlook logo"> | <img src="https://unlayer.com/icons/yahoo-mail-icon-square.png" width="48px" height="48px" alt="Yahoo! Mail logo"> |
-| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| Gmail ✔                                                                                           | Apple Mail ✔                                                                                           | Outlook ✔                                                                                             | Yahoo! Mail ✔                                                                                                |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Gmail ✔                                                                                                 | Apple Mail ✔                                                                                                 | Outlook ✔                                                                                                   | Yahoo! Mail ✔                                                                                                      |
 
 ## AI Assistant
 
