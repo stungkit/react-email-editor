@@ -10,6 +10,7 @@
   <a href="https://github.com/unlayer/react-email-editor/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/react-email-editor.svg" alt="license" /></a>
   <a href="https://www.npmjs.com/package/react-email-editor"><img src="https://img.shields.io/npm/dm/react-email-editor.svg" alt="downloads" /></a>
   <a href="https://github.com/unlayer/react-email-editor/actions/workflows/ci.yml"><img src="https://github.com/unlayer/react-email-editor/actions/workflows/ci.yml/badge.svg" alt="CI status" /></a>
+  <a href="https://codecov.io/gh/unlayer/react-email-editor"><img src="https://codecov.io/gh/unlayer/react-email-editor/branch/master/graph/badge.svg" alt="test coverage" /></a>
 </p>
 
 ---
